@@ -280,6 +280,11 @@ module LibertyBuildpack::Services
       props.add_attribute('serverName', @host)
       modify_properties(props)
 
+      cm = REXML::Element.new("ConnectionManager", ds)
+      cm.add_attribute('maxPoolSize', '4')
+      cm.add_attribute('minPoolSize', '3')
+
+
       # allow types that need it to add a ConnectionManager
       create_connection_manager(ds)
       # create the JDBC driver. The JDBC driver will create the shared library.
