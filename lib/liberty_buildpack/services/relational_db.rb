@@ -281,7 +281,7 @@ module LibertyBuildpack::Services
       modify_properties(props)
 
       cm = REXML::Element.new("ConnectionManager", ds)
-      cm.add_attribute('maxPoolSize', '4')
+      cm.add_attribute('maxPoolSize', '3')
       cm.add_attribute('minPoolSize', '3')
 
 
