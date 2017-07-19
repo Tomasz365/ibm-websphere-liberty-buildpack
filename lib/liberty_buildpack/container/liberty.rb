@@ -394,6 +394,9 @@ module LibertyBuildpack::Container
       application.attributes['location'] = myapp_name
       application.attributes['type'] = myapp_type
       application.attributes['context-root'] = get_context_root || '/'
+	  
+	  classloader = REXML::Element.new('classloader', application)
+	  classloader.add_attribute('commonLibraryRef','postgresql-library')
 
       # configure CDI 1.2 implicit bean archive scanning
       cdi = REXML::Element.new('cdi12', server_xml_doc.root)
